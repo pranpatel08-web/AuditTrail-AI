@@ -104,7 +104,7 @@ Priced per reviewer, sold to the people who read leases for a living.
 | Firm | $199/mo | 500 audits, 5 seats, white-label | Boutique diligence teams |
 | Enterprise | Custom | Unlimited, on-prem/VPC, SSO | Institutions with data-residency constraints |
 
-Overage is $2.00 per audit. Measured cost: the sample audit consumed **24–31 Clocked credits (≈ $0.007–$0.009)** on the Build plan across runs (1 credit = 25 ms model time, $0.30 per 1,000 credits). That is roughly a 99% gross margin at list price, before payment fees. Full model in [`docs/MONETISATION.md`](docs/MONETISATION.md).
+Overage is $2.00 per audit. Measured cost: the sample audit consumed **24–32 Clocked credits (≈ $0.007–$0.010)** on the Build plan across runs (1 credit = 25 ms model time, $0.30 per 1,000 credits). That is roughly a 99% gross margin at list price, before payment fees. Full model in [`docs/MONETISATION.md`](docs/MONETISATION.md).
 
 The product implements the monetisation rather than describing it: monthly quotas enforced server-side (`402 quota_exceeded`), plan switching, usage metering, Stripe Checkout when keys are present, and hashed API keys gated to paid plans.
 

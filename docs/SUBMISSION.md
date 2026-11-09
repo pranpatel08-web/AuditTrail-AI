@@ -51,7 +51,7 @@ Every analysis step is a real Clocked call. The output of each call changes what
 | 4 | `POST /clocked/grounding` | The regulatory source as a document, 4–8 operative claims, an evidence-backed summary | Per-claim `supported` / `contradicted` / `not_stated`, probabilities, evidence quote with offsets | Contradicted claims drive the risk policy and the report's evidence column. Claims the source cannot address are filtered out *before* the call (probes per claim), so the report is not padded with meaningless "not stated" verdicts. |
 | 5 | `POST /clocked/decide` | Masked text, extracted fields, grounding verdicts, deterministic rule failures, four typed questions | Typed answers with probabilities: risk level, compliance detected, required actions, human review | Sets the risk banner, the remediation checklist and the review flag. The application's policy layer can escalate a decision on a hard rule failure; it never silently downgrades one. |
 
-**Measured usage:** the sample audit consumed **24–31 credits** across the five calls (588–759 ms of model time) — **$0.007–$0.009** on the Build plan at $0.30 per 1,000 credits. The number is computed from the `timing` field of each response and shown in the report.
+**Measured usage:** the sample audit consumed **24–32 credits** across the five calls (588–800 ms of model time) — **$0.007–$0.010** on the Build plan at $0.30 per 1,000 credits. The number is computed from the `timing` field of each response and shown in the report.
 
 ## How we built it
 

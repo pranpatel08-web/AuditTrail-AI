@@ -23,7 +23,7 @@ Annual billing at 10 months' price is the planned default; it is not implemented
 
 ## Measured cost to serve
 
-Clocked bills **1 credit per 25 ms of successful model time**, rounded up per request. The measured sample audit used **588–759 ms of model time across five calls → 24–31 credits**; the tables below use the conservative 31.
+Clocked bills **1 credit per 25 ms of successful model time**, rounded up per request. The measured sample audit used **588–800 ms of model time across five calls → 24–32 credits**; the tables below use the conservative 32.
 
 | Clocked plan | Effective $/1,000 credits | Cost per audit (31 credits) |
 | --- | ---: | ---: |
