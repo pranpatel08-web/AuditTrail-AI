@@ -1,0 +1,13 @@
+{
+  "name": "AuditTrail AI — lease compliance with receipts",
+  "short_name": "AuditTrail",
+  "description": "Masked, evidence-cited commercial lease compliance audits powered by the Clocked API.",
+  "start_url": "/#/workspace",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f5f2ea",
+  "theme_color": "#0d1b17",
+  "icons": [
+    { "src": "/assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

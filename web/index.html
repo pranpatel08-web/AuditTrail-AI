@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AuditTrail AI — lease compliance with receipts</title>
+<meta name="description" content="AuditTrail reads a commercial lease, masks every tenant identifier before analysis, and tests each operative clause against the zoning source you supply. Five Clocked endpoints, deterministic arithmetic, a citation for every finding.">
+<meta name="theme-color" content="#0d1b17">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="#/" aria-label="AuditTrail AI home">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 2.6 4.2 6v6.2c0 4.3 3.1 7.7 7.8 9.2 4.7-1.5 7.8-4.9 7.8-9.2V6L12 2.6Z" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M8.4 12.1l2.5 2.5 4.7-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>AuditTrail<span class="brand-dot">.</span>AI</span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#/workspace">Workspace</a>
+    <a href="#/history">History</a>
+    <a href="#/pricing">Pricing</a>
+    <a href="#/method">Method</a>
+  </nav>
+  <div class="topbar-right">
+    <span class="status-chip" id="status-chip" title="Storage and engine status">
+      <span class="dot"></span><span id="status-text">checking</span>
+    </span>
+    <span id="account"></span>
+    <button class="btn btn-ghost btn-sm" id="menu-btn" aria-label="Menu" aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1"></main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="brand brand-footer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 2.6 4.2 6v6.2c0 4.3 3.1 7.7 7.8 9.2 4.7-1.5 7.8-4.9 7.8-9.2V6L12 2.6Z" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M8.4 12.1l2.5 2.5 4.7-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>AuditTrail AI</span>
+      </div>
+      <p class="muted small">Lease compliance with receipts. Built on the Clocked API.</p>
+    </div>
+    <div class="footer-links">
+      <div><h4>Product</h4><a href="#/workspace">Workspace</a><a href="#/pricing">Pricing</a><a href="#/history">Audit history</a></div>
+      <div><h4>Engineering</h4><a href="#/method">Method</a><a href="/api/v1/health" target="_blank" rel="noopener">Health</a><a href="/docs" target="_blank" rel="noopener">API docs</a></div>
+      <div><h4>Legal</h4><a href="#/method">Limitations</a><a href="mailto:hello@audittrail.ai">hello@audittrail.ai</a></div>
+    </div>
+  </div>
+  <div class="footer-base">
+    <span>© 2026 AuditTrail AI</span>
+    <span>Decision support, not legal advice · PII masked before analysis</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/app.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: audittrail-ai
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/v1/health
+    autoDeploy: true
+    disk:
+      name: audittrail-data
+      mountPath: /app/data
+      sizeGB: 1
+    envVars:
+      - key: CLOCKED_API_KEY
+        sync: false
+      - key: CLOCKED_API_URL
+        value: https://clocked.rezolve.ai/clocked
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
+      - key: SUPABASE_PUBLISHABLE_KEY
+        sync: false
+      - key: ALLOW_DEMO_MODE
+        value: "true"
+      - key: FAIL_CLOSED
+        value: "true"
+      - key: STORAGE_BACKEND
+        value: auto
+      - key: DATABASE_PATH
+        value: /app/data/audittrail.db
