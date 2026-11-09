@@ -1,5 +1,7 @@
 # Devpost submission copy
 
+> **Deadline: 10 Nov 2026, 11:59 p.m. ET.** For the ordered, 10-minute version of what is left, see [`SUBMIT_NOW.md`](SUBMIT_NOW.md).
+
 Paste-ready text for the Clocked Build Challenge entry form. Replace the bracketed placeholders (URLs, team details) before submitting.
 
 ---

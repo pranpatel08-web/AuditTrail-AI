@@ -197,6 +197,12 @@ docker run -p 8000:8000 --env-file .env audittrail
 
 The supplied regulatory source is the only authority used for verification. A term the source does not address is reported as *not stated*, which is not a finding of compliance. The rule engine covers the numeric patterns it knows (parking ratios, area caps, permitted hours, signage limits, consent standards); other jurisdictions need their own rule pack. This is decision support, not legal advice.
 
+## Licence and evaluation
+
+This repository is **public for judging and evaluation only**. It is not open source: see [`LICENSE`](LICENSE). You may view and clone it to evaluate the submission, and quote short excerpts with attribution. Commercial use, redistribution or derivative works need written permission.
+
+What is deliberately *not* in this repository — jurisdiction rule packs, evaluation corpora, customer data, tuned prompts — is described in [`docs/IP_PROTECTION.md`](docs/IP_PROTECTION.md), along with the practical plan for protecting the product once it is public.
+
 ## Repository layout
 
 ```
@@ -211,4 +217,4 @@ run.py       One-command launcher
 
 ---
 
-Built with the [Clocked API](https://clocked.rezolve.ai/docs) · FastAPI · Supabase · vanilla JS. Licensed for the challenge submission.
+Built with the [Clocked API](https://clocked.rezolve.ai/docs) · FastAPI · Supabase · vanilla JS. Proprietary; see [`LICENSE`](LICENSE) and [`SECURITY.md`](SECURITY.md).
