@@ -12,6 +12,7 @@ import json
 import logging
 import sqlite3
 import threading
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Protocol
@@ -362,15 +363,19 @@ class StoreRouter:
         self.sqlite = SQLiteStore(settings.database_path)
         self.supabase: SupabaseStore | None = None
         self.active: Store = self.sqlite
+        self._last_probe = 0.0
+        self._last_reason = "not checked"
         self._resolve()
 
     def _resolve(self) -> None:
         choice = self.settings.storage_backend
         if choice == "sqlite" or not self.settings.supabase_ready:
             self.active = self.sqlite
+            self._last_reason = "sqlite selected"
             return
         candidate = SupabaseStore(self.settings)
         ready, detail = candidate.ready()
+        self._last_reason = "ok" if ready else detail
         if ready:
             self.supabase = candidate
             self.active = candidate
@@ -381,11 +386,32 @@ class StoreRouter:
     def refresh(self) -> None:
         self._resolve()
 
+    def _probe_for_upgrade(self) -> None:
+        """Promote SQLite → Supabase once the schema becomes available.
+
+        The schema is applied in the SQL editor, usually while the server is
+        already running. Probing here (throttled) means /health flips to
+        Supabase without a restart or a redeploy.
+        """
+        if self.active is not self.sqlite or not self.settings.supabase_ready:
+            return
+        now = time.time()
+        if now - self._last_probe < 15:
+            return
+        self._last_probe = now
+        candidate = self.supabase or SupabaseStore(self.settings)
+        ready, reason = candidate.ready()
+        self._last_reason = "ok" if ready else reason
+        if ready:
+            self.supabase = candidate
+            self.active = candidate
+            logger.info("Supabase schema detected; switched active storage to Supabase")
+
     def status(self) -> dict[str, Any]:
+        self._probe_for_upgrade()
         detail = self.active.health()
-        if self.supabase is None and self.settings.supabase_ready:
-            ready, reason = SupabaseStore(self.settings).ready()
-            detail["supabase_reason"] = "ok" if ready else reason
+        if self.active is self.sqlite and self.settings.supabase_ready:
+            detail["supabase_reason"] = self._last_reason
         return detail
 
     # delegate ------------------------------------------------------------
