@@ -29,3 +29,6 @@ Thumbs.db
 
 # Archived prototypes may contain live keys in their handoff notes
 legacy/
+
+# Build artifacts
+dist/
