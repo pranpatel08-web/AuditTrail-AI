@@ -109,7 +109,7 @@ Every analysis step is a real Clocked call. The output of each call changes what
 ## Try it
 
 ```bash
-git clone [REPOSITORY_URL]
+git clone https://github.com/pranpatel08-web/AuditTrail-AI.git
 cd audittrail-ai
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
@@ -119,9 +119,9 @@ python run.py               # http://127.0.0.1:8000
 
 Click **Load sample** → **Run audit**. The sample contains a parking shortfall, an entertainment-licensing conflict and two documentation gaps.
 
-Hosted demo: **[DEMO_URL]**
-Repository: **[REPOSITORY_URL]**
-Demo video: **[VIDEO_URL]**
+Repository: **https://github.com/pranpatel08-web/AuditTrail-AI**
+Demo video: **[paste the unlisted YouTube URL after uploading `dist/AuditTrail-AI-demo.webm`]**
+Hosted demo: **[optional — paste a public URL, or leave blank; the video satisfies the demo requirement]**
 
 ## Team
 

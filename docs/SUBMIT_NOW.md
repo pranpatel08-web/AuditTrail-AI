@@ -31,15 +31,17 @@ Expected: `"storage": {"backend": "supabase", ...}`. If it still says `sqlite`, 
 
 ## Step 2 — Push the public repo (3 minutes)
 
-You are currently authenticated to GitHub as **`pranpat01-cpu`**, which cannot write to `pranpatel08-web/AuditTrail-AI`. Either create a new repository under `pranpat01-cpu`, or add that account as a collaborator on the old one.
+You are currently authenticated to GitHub as **`pranpat01-cpu`**, which cannot write to `pranpatel08-web/AuditTrail-AI`. Sign in to GitHub as **pranpatel08@gmail.com**, then either create a new public repository (recommended, avoids force-pushing over old history) or add `pranpat01-cpu` as a collaborator.
 
 Create an **empty public** repo (no README), then:
 
 ```powershell
 cd "C:\DEV\AuditTrail AI"
-git remote set-url origin https://github.com/pranpat01-cpu/AuditTrail-AI.git
+git remote set-url origin https://github.com/<your-account>/<repo>.git
 git push -u origin main
 ```
+
+If you reuse `pranpatel08-web/AuditTrail-AI`, its history differs, so the first push needs `git push --force -u origin main`. That overwrites the old three-endpoint README with this build.
 
 Before pushing, confirm the secret file is not included:
 
