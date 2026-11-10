@@ -120,8 +120,8 @@ python run.py               # http://127.0.0.1:8000
 Click **Load sample** → **Run audit**. The sample contains a parking shortfall, an entertainment-licensing conflict and two documentation gaps.
 
 Repository: **https://github.com/pranpatel08-web/AuditTrail-AI**
-Demo video: **[paste the unlisted YouTube URL after uploading `dist/AuditTrail-AI-demo.webm`]**
-Hosted demo: **[optional — paste a public URL, or leave blank; the video satisfies the demo requirement]**
+Demo video: **https://github.com/pranpatel08-web/AuditTrail-AI/releases/download/demo-v1/AuditTrail-AI-demo.webm**
+Hosted demo: not deployed — the release video is the demo. Run locally with `python run.py`.
 
 ## Team
 
