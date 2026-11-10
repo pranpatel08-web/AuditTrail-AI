@@ -93,6 +93,8 @@ Supabase is the production store: `at_profiles`, `at_audits`, `at_api_keys` with
 
 If Supabase is absent or its schema has not been applied, the server falls back to SQLite (`data/audittrail.db`) so the product is always demonstrable. The active backend is shown in the header and at `GET /api/v1/health`. Both backends implement the same interface, and audits are always scoped to the verified identity — never to a `user_id` supplied by the browser.
 
+This build is verified against a live Supabase project: four tables, seven RLS policies, a real audit persisted to `at_audits`, and a second signed-in user seeing zero rows. Evidence: [`docs/SUPABASE_VERIFICATION.md`](docs/SUPABASE_VERIFICATION.md).
+
 ## Monetisation
 
 Priced per reviewer, sold to the people who read leases for a living.

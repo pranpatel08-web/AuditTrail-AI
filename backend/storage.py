@@ -14,6 +14,7 @@ import sqlite3
 import threading
 import time
 from datetime import datetime, timezone
+from urllib.parse import quote
 from pathlib import Path
 from typing import Any, Protocol
 
@@ -232,8 +233,9 @@ class SupabaseStore:
         }
 
     def _request(self, method: str, path: str, **kwargs: Any) -> httpx.Response:
+        headers = {**self.headers, **kwargs.pop("headers", {})}
         with httpx.Client(timeout=20) as client:
-            response = client.request(method, f"{self.base}/{path}", headers=self.headers, **kwargs)
+            response = client.request(method, f"{self.base}/{path}", headers=headers, **kwargs)
         return response
 
     def ready(self) -> tuple[bool, str]:
@@ -283,11 +285,13 @@ class SupabaseStore:
     def count_audits_since(self, user_id: str, since_iso: str) -> int:
         response = self._request(
             "GET",
-            f"at_audits?user_id=eq.{user_id}&created_at=gte.{since_iso}&select=id",
+            f"at_audits?user_id=eq.{user_id}&created_at=gte.{quote(since_iso, safe='')}&select=id",
             headers={**self.headers, "Prefer": "count=exact", "Range": "0-0"},
         )
         if response.status_code >= 300:
-            raise RuntimeError(f"Supabase count failed: {response.status_code}")
+            raise RuntimeError(
+                f"Supabase count failed: {response.status_code} {response.text[:200]}"
+            )
         count_range = response.headers.get("content-range", "0-0/0")
         return int(count_range.split("/")[-1] or 0)
 
